@@ -1,0 +1,29 @@
+﻿
+.divsize {
+    margin: auto;
+    margin-top: 20px;
+    width: 400px;
+    border: 1px solid white;
+    padding: 20px;
+    margin-bottom:150px;
+    
+}
+
+h2 {
+    margin-left: 130px;
+    margin-bottom: 10px
+}
+
+.register-button {
+    margin: 0 auto;
+    display: block;
+    width: 358px;
+}
+
+.err {
+    color: red;
+}
+
+.msg {
+    padding: 0px;
+}

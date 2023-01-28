@@ -1,0 +1,51 @@
+﻿@model IEnumerable<User>
+
+@{
+    ViewData["Title"] = "List of all users";
+
+}
+
+<div class="row" style="height:100vh;">
+    <div class="col-md-6 offset-3">
+        <p>
+            <h4>List of all users</h4>
+        </p>
+
+        <table class="table">
+            <thead>
+                <tr class="text-center">
+                    <th>@Html.DisplayNameFor(model => model.FullName)</th>
+                    <th>@Html.DisplayNameFor(model => model.UserName)</th>
+                    <th>@Html.DisplayNameFor(model => model.Email)</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                         <td class="align-middle">
+                            @Html.DisplayFor(modelItem => item.FullName)
+                        </td>
+                        <td class="align-middle">
+                            @Html.DisplayFor(modelItem => item.UserName)
+                        </td>
+                        <td class="align-middle">
+                            @Html.DisplayFor(modelItem => item.Email)
+                        </td>
+                        <td class="align-middle">
+                            <a asp-controller="account" asp-action="EditUser" asp-route-id="@item.Id">Edit</a>
+                        </td>  
+                        <td class="align-middle">
+                            <a asp-controller="account" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                        </td> 
+                             
+                        
+                    </tr>
+                }
+               
+            </tbody>
+
+        </table>
+
+    </div>
+</div>

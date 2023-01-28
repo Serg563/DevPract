@@ -1,0 +1,63 @@
+﻿
+@inject UserManager<User> UserManager;
+
+<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+@if (!User.Identity.IsAuthenticated)
+{
+         
+            <a class="btn btn-outline-primary my-2 my-sm-0" asp-controller="Account" asp-action="Login">
+                <i class="bi bi-box-arrow-in-right"></i> Log in
+            </a>
+            <span style="padding: 5px;"></span>
+
+            <a class="btn btn-outline-primary my-2 my-sm-0" asp-controller="Account" asp-action="Registration">
+                <i class="bi bi-person-plus"></i> Register
+            </a>
+            
+}
+else{
+         <div class="dropdown" style="padding-right: 55px;">
+        <button class="btn btn-outline-primary dropdown-toggle" type="button" id="profile-btn" data-toggle="dropdown"
+                aria-expanded="false">
+           @* <i class="bi bi-person-badge"></i>@UserManager.GetUserName(User)*@
+                <i class="fa-solid fa-user"></i>
+            @*<i class="fa-solid fa-user"></i>*@
+        </button>
+           
+        <ul class="dropdown-menu" aria-labelledby="profile-btn" >
+            <li>
+                <a class="dropdown-item" asp-controller="Orders" asp-action="Index">
+                    <i class="bi bi-list"></i> Orders
+                </a>
+            </li>
+           
+            <form asp-controller="Account" asp-action="Logout" >
+                <button class="btn btn-outline-danger my-2 my-sm-0" style="width:157px;">
+                    <i class="bi bi-box-arrow-in-right"></i> Log out
+                </button>
+            </form>
+            @if (User.IsInRole("Admin"))
+            {
+                <li>
+                    <a class="dropdown-item" asp-controller="Account" asp-action="Users">
+                        <i class="bi bi-people"></i> Users
+                    </a>
+                </li>
+            }
+        </ul>
+    </div>
+    <span style="padding: 5px;"></span>
+    
+}
+
+<style>
+   login{
+       padding-left:500px;
+     
+   }
+</style>

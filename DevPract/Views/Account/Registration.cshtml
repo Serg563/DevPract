@@ -1,0 +1,105 @@
+﻿@model DevPract.Models.ViewModels.RegistrationModel
+
+<!DOCTYPE html>
+<html lang="en">
+<head> 
+   
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />   
+    <link rel="stylesheet" href="~/DevPract.styles.css" asp-append-version="true" />
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
+</head>
+<body>
+
+<div class="divsize">
+    <h2>Sign-up</h2>
+    <form method="post" asp-controller="Account" asp-action="Registration" >
+ 
+        <div class="form-outline mb-4">
+            <input type="text" asp-for="FullName" class="form-control" placeholder="Enter Full Name"/>
+                  <div class="msg err">
+                       <span asp-validation-for="FullName" class="err"></span>
+                  </div>
+            <label asp-for="FullName" class="form-label">Full Name</label>
+          </div>
+
+        <!-- Email input -->
+          <div class="form-outline mb-4">
+            <input type="email" asp-for="Email" class="form-control" placeholder="Enter Email"/>
+                  <div class="msg err">
+                       <span asp-validation-for="Email" class="err"></span>
+                  </div>
+            <label asp-for="Email" class="form-label">Email address</label>
+          </div>
+
+           <!-- Year input -->
+          <div class="form-outline mb-4">
+            <input type="text" asp-for="Year" class="form-control" placeholder="Enter Year" />
+                 <div class="msg err">
+                            <span asp-validation-for="Year" class="err"></span>
+                 </div>
+            <label asp-for="Year" class="form-label">Year</label>
+          </div>
+
+          <!-- Password input -->
+          <div class="form-outline mb-4">
+            <input type="password" asp-for="Password" class="form-control" placeholder="Enter password" />
+                 <div class="msg err">
+                            <span asp-validation-for="Password" class="err"></span>
+                 </div>
+            <label asp-for="Password" class="form-label">Password</label>
+          </div>
+
+         
+          <!-- 2 column grid layout for inline styling -->
+           <div class="form-outline mb-4">
+            <input type="password" asp-for="PasswordConfirm" class="form-control" placeholder="Enter Password" />
+                 <div class="msg err">
+                            <span asp-validation-for="PasswordConfirm"></span>
+                 </div>
+            <label asp-for="PasswordConfirm" class="form-label">PasswordConfirm</label>
+          </div>
+
+           
+          <!-- Submit button -->
+          <button type="submit" class="btn btn-primary btn-block mb-4 register-button">Sign up</button>
+
+           <!-- Register buttons -->
+          <div class="text-center">
+            <p>Already exists? <a href="/Account/Login">Login</a></p>
+          </div>
+    </form>
+</div>
+</body>
+</html>
+
+
+ 
+    
+   
+@*<h2>Регистрация нового пользователя</h2>
+<form method="post" asp-controller="Account" asp-action="Registration">
+    <div asp-validation-summary="ModelOnly"></div>
+    <div>
+        <label asp-for="Email"></label><br />
+        <input asp-for="Email" />
+        <span asp-validation-for="Email"></span>
+    </div>
+    <div>
+        <label asp-for="Year"></label><br />
+        <input asp-for="Year" />
+        <span asp-validation-for="Year"></span>
+    </div>
+    <div>
+        <label asp-for="Password"></label><br />
+        <input asp-for="Password" />
+        <span asp-validation-for="Password"></span>
+    </div>
+    <div>
+        <label asp-for="PasswordConfirm"></label><br />
+        <input asp-for="PasswordConfirm" />
+        <span asp-validation-for="PasswordConfirm"></span>
+    </div>
+    <div>
+        <input type="submit" value="Регистрация" />
+    </div>
+</form>*@
